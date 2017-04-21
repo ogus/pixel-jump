@@ -31,8 +31,8 @@ function Game(elementID,param){
   Game._this = this;
 
   if(param === undefined){ param = {}; }
-  this.gameHeight = param.canvasHeight > 0 ? param.canvasHeight : 480;
-  this.gameWidth = param.canvasWidth > 0 ? param.canvasWidth : 320;
+  this.gameHeight = parseInt(param.canvasHeight) > 0 ? parseInt(param.canvasHeight) : 480;
+  this.gameWidth = parseInt(param.canvasWidth) > 0 ? parseInt(param.canvasWidth) : 320;
 
   this.canvas = document.getElementById(elementID);
   this.canvas.width = this.gameWidth;
@@ -250,6 +250,7 @@ Game.prototype.gameover = function(){
 };
 
 Game.prototype.setSize = function(width,height,border){
+  var width = parseInt(width), height = parseInt(height);
   var screenHeight, screenWidth;
   if(height > 0 && width > 0){
     screenHeight = height;
