@@ -1,6 +1,7 @@
 # Pixel Jump
 A small Flappy Bird clone, easily customizable
 
+
 ## Getting Started
 To play this Web game, you will need:
 
@@ -13,6 +14,7 @@ new Game("canvasID");
 ```
 
 Congratulation, you can now play the game !
+
 
 ## Options
 You can easily customize the game as you like. Here are the available parameters:
@@ -33,87 +35,95 @@ All parameters are *optionnal*, you can set only the height, or the textColor an
 new Game("canvasID", {width: "300", border: "true", playerColor: "#4ea6ca"});
 ```
 
-#### Width & Height
+
+### width & height
 Set the dimension of the game on the page, in pixel. You can use either a string or a number.
 
-**Default:** ' fill the HTML parent element, while conserving the width/height ratio '
+*Default:* `fill the HTML parent element, while conserving the width/height ratio`
 
-*Examples:*
+**Examples:**
 ```javascript
 new Game("canvasID", {width: "300px"});
 new Game("canvasID", {height: 500.12});
 new Game("canvasID", {height: 480, width: "320"});
 ```
 
-#### canvasWidth & canvasHeight
+
+### canvasWidth & canvasHeight
 Set the dimension of the canvas in the game. You can use either a string or a number.
 You should be carefull when changing these values, as it can make the game unplayable or too easy depending on the height.
 
-**Default:** ' canvasWidth = 320, canvasHeight = 480 '
+*Default:* `canvasWidth = 320, canvasHeight = 480`
 
-*Examples:*
+**Examples:**
 ```javascript
 new Game("canvasID", {canvasHeight: "520"});
 new Game("canvasID", {canvasHeight: "480.75px", canvasWidth: 623});
 ```
 
-#### border
+
+### border
 Draw a border around the game, or hide it. The value must be a boolean.
 
-**Default:** ' "true" '
+*Default:* `"true"`
 
-*Examples:*
+**Examples:**
 ```javascript
 new Game("canvasID", {border: 'true'});
 new Game("canvasID", {border: 'false'});
 ```
 
-#### playerColor
+
+### playerColor
 Set the color of the cube, and the trail behind. The color must be in hexadecimal, with all 6 hex values.
 
-**Default:** ' random color '
+*Default:* `random color`
 
-*Examples:*
+**Examples:**
 ```javascript
 new Game("canvasID", {playerColor: "#ffffff"});
 new Game("canvasID", {playerColor: "#4ea6ca"});
 ```
 
-#### worldColor
+
+### worldColor
 Set the color of the obstacle, and the border. The color must be in hexadecimal, with all 6 hex values.
 
-**Default:** ' "#c1c0bf" '
+*Default:* `"#c1c0bf"`
 
-*Examples:*
+**Examples:**
 ```javascript
-new Game("canvasID", {borderColor: "#942443"});
-new Game("canvasID", {playerColor: "#8b0000"});
+new Game("canvasID", {worldColor: "#942443"});
+new Game("canvasID", {worldColor: "#8b0000"});
 ```
 
-#### backgroundColor
+
+### backgroundColor
 Set the color of the background behind the player. The color must be in hexadecimal, with all 6 hex values.
 
-**Default:** ' "#31302b" '
+*Default:* `"#31302b"`
 
-*Examples:*
+**Examples:**
 ```javascript
-new Game("canvasID", {borderColor: "#31302b"});
-new Game("canvasID", {playerColor: "#d8c9a6"});
+new Game("canvasID", {backgroundColor: "#31302b"});
+new Game("canvasID", {backgroundColor: "#d8c9a6"});
 ```
 
-#### textColor
+
+### textColor
 Set the color of the background behind the player. The color must be in hexadecimal, with all 6 hex values.
 
-**Default:** ' "#ffffff" '
+*Default:* `"#ffffff"`
 
-*Examples:*
+**Examples:**
 ```javascript
 new Game("canvasID", {borderColor: "#d1eae9"});
 new Game("canvasID", {playerColor: "#004c4c"});
 ```
 
+
 ## Demo
-A [demonstration](demo) is available to show you how to implement the game in your own website. You can modify the HTML, CSS, and Javascript as you want to see how the game works.
+A [demonstration](demo) is available to show you how to implement the game in your own website. You can modify the HTML, CSS, and Javascript as you want to see how the game works.  
 Use the spacebar to launch the game and jump. You can also pause the game by clicking on the canvas.
 
 ## License
