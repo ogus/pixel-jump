@@ -59,6 +59,7 @@ function Game(elementID,param){
   this.pause = false;
 
   this.gameKey;
+  this.pauseKey;
   this.key = null;
   this.keyDone = false;
 
@@ -82,6 +83,7 @@ Game.prototype.init = function(param) {
   this.setSize(param.width,param.height,param.border);
 
   this.gameKey = " ";
+  this.pauseKey = "p";
   this.setListener();
 
   this.then = Date.now();
@@ -90,7 +92,6 @@ Game.prototype.init = function(param) {
 
 Game.prototype.setListener = function(){
   window.addEventListener("keydown", function(e){
-    e.preventDefault();
     Game._this.key = e.key;
   }, false);
 
@@ -99,8 +100,10 @@ Game.prototype.setListener = function(){
     Game._this.keyDone = false;
   }, false);
 
-  this.canvas.addEventListener("click", function(e){
-    Game._this.togglePause();
+  window.addEventListener("keydown", function(e){
+    if(e.key == Game._this.pauseKey){
+      Game._this.togglePause();
+    }
   }, false);
 };
 
@@ -236,7 +239,7 @@ Game.prototype.togglePause = function(){
   }
   else{
     this.then = Date.now();
-    requestAnimFrame(this.mainLoop);
+    this.requestId = requestAnimFrame(this.mainLoop);
   }
 }
 
@@ -244,8 +247,19 @@ Game.prototype.gameover = function(){
   this.state = this.GAME_STATE.SCORE;
   this.player.die();
 
+  var storage = false;
+  if(typeof(localStorage) != "undefined"){
+    storage = true;
+    if(localStorage.getItem('pixelJumpBestScore') != null){
+      this.bestScore = parseInt(localStorage.getItem('pixelJumpBestScore'));
+    }
+  }
+
   if(this.score > this.bestScore){
     this.bestScore = this.score;
+    if(storage){
+      localStorage.setItem('pixelJumpBestScore', String(this.bestScore));
+    }
   }
 };
 
@@ -480,7 +494,7 @@ Player.prototype.render = function(ctx){
 };
 
 Player.prototype.jump = function(){
-  if(this.posY >= 0){
+  if(this.posY > 0){
     this.speedY = -350;
   }
 };
