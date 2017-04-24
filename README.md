@@ -108,8 +108,8 @@ Set the color of the background behind the player. The color must be in hexadeci
 
 **Examples:**
 ```javascript
-new Game("canvasID", {borderColor: "#d1eae9"});
-new Game("canvasID", {playerColor: "#004c4c"});
+new Game("canvasID", {textColor: "#d1eae9"});
+new Game("canvasID", {textColor: "#004c4c"});
 ```
 
 ## Demo
